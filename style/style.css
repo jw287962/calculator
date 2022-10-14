@@ -1,0 +1,48 @@
+html{
+    display: flex;
+    text-align: center;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+.calculator{
+    display: flex;
+    border-style: solid;
+    flex-direction: column;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  
+}
+.groupbuttons{
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-around;
+}
+.calcButtons{
+   width: 50px;
+   
+}
+
+button{
+   border-color: grey;
+   border-radius: 3px;
+   border-width: 1.2px;
+   margin: 4px;
+   display: flex;
+
+   align-items: center;
+   justify-content: center;
+   
+}
+
+canvas{
+    border-style: solid;
+    
+}
+
