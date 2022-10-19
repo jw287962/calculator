@@ -2,7 +2,7 @@ html{
     display: flex;
     text-align: center;
     justify-content: center;
-   
+
 
 }
 
@@ -27,8 +27,9 @@ body{
 .calculatorInputs{
     display: flex;
     justify-content: flex-end;
-    margin:10px 15px 10px 15px;
-    
+    margin:20px 15px 20px 15px;
+    font-size:xx-large;
+  
 }
 
 .calculatorBottom{
@@ -36,6 +37,8 @@ body{
     border-width: 2px;
  border-color: grey;
  border-top-width: 0px;
+ font-size:xx-large;
+
 }
 .column{
     display: flex;
@@ -51,7 +54,7 @@ body{
    
 }
 .calcButtons{
-   width: 50px;
+   width: 100px;
   
 }
 
@@ -60,12 +63,12 @@ button{
    border-radius: 3px;
    border-width: 1.2px;
    margin: 2px;
-    padding: 7px;
+    padding: 25px;
    display: flex;
 
    align-items: center;
    justify-content: center;
-   
+   font-size: x-large;
 }
 
 canvas{
