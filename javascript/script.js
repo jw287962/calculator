@@ -8,14 +8,14 @@ var numbers = [{
 
     let buttonClick = document.querySelectorAll('.calcButtons');
     var isEqual = false;
-
+    clear();
 
 awaitClick(buttonClick);
 
 
 
 function awaitClick(buttons){
-   
+
       
       
         buttons.forEach(div => div
@@ -23,9 +23,7 @@ function awaitClick(buttons){
                 
                 if(this.id === 'clear'){
                     changeDisplay(0);
-                    window.numbers.secondNumber = 0;
-                    window.numbers.firstNum = 0;
-                    window.numbers.operator = '';
+                    clear();
                    
                 }
                 else if(isOperator()){
@@ -34,48 +32,52 @@ function awaitClick(buttons){
                             let total = operate(window.numbers.firstNum,window.numbers.secondNumber,window.numbers.operator);
                             changeDisplay(total);
                             window.numbers.firstNum = total;
-                            window.numbers.secondNumber = 0;
+                            window.numbers.secondNumber = 0.0;
                         }
                         else if(this.id === 'operator') {
                             window.numbers.operator = this.textContent;
                             changeDisplay(0);
                             
                         }
-                        else if(window.numbers.secondNumber > 0){
-                            let newNum = window.numbers.secondNumber*10+  (this.textContent*1)
-                        changeDisplay(newNum);
+                        else if(!window.numbers.secondNumber){
+                            let newNum = ((this.textContent))
+                     
                         window.numbers.secondNumber = newNum;
+                        changeDisplay(newNum);
+                        }
+                        else {
+                            let newNum = (window.numbers.secondNumber+  (this.textContent));
+                       
+                        window.numbers.secondNumber = newNum;
+                        changeDisplay(newNum);
                         }
                         
-                        else{
-                        window.numbers.secondNumber = this.textContent;
+                        // else{
+                        // window.numbers.secondNumber = this.textContent;
                     
-                        changeDisplay(window.numbers.secondNumber);
-                        }
+                        // changeDisplay(window.numbers.secondNumber);
+                        // }
                 }else{
-
-            //     if(this.id === 'equal')  {
-            //     let total = operate(window.numbers.firstNum,window.number.secondNumber,window.number.operator);
-            //     changeDisplay(total);
-            //     window.firstNum = total;
-            // }
-            //     else 
                         if(this.id === 'operator') {
                                 window.numbers.operator = this.textContent;
                                 changeDisplay(0);
                                 
                             }
-
-                            else if(window.numbers.firstNum > 0){
-                                let newNum = window.numbers.firstNum*10+  (this.textContent*1)
+                           else if(!window.numbers.firstNum){
+                                let newNum = ( (this.textContent))
+                                window.numbers.firstNum = newNum;
                             changeDisplay(newNum);
-                            window.numbers.firstNum = newNum;
-                            }
                             
-                            else{
-                            window.numbers.firstNum = this.textContent;
-                            changeDisplay(window.numbers.firstNum);
+                          
                             }
+                            else {
+                                let newNum = (window.numbers.firstNum + (this.textContent));
+                                window.numbers.firstNum = newNum;
+                            changeDisplay(newNum);
+                           
+                            }
+                           
+                          
             }
                 
         }))
@@ -92,7 +94,11 @@ function changeDisplay(num1){
     
     
  }
-
+function clear(){
+    window.numbers.secondNumber = 0;
+    window.numbers.firstNum = 0;
+    window.numbers.operator = '';
+}
 function add(num1,num2){
     return (num1*1)+(num2*1);
 }
