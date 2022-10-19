@@ -23,7 +23,7 @@ body{
 .calculatorInputs{
     display: flex;
     justify-content: flex-end;
-    margin:6px 10px;
+    margin:10px 15px 10px 15px;
     
 }
 
@@ -44,17 +44,18 @@ body{
     flex-direction: row;
     align-items: stretch;
     justify-content: space-around;
+   
 }
 .calcButtons{
    width: 50px;
-   
+  
 }
 
 button{
    border-color: grey;
    border-radius: 3px;
    border-width: 1.2px;
-   margin: 4px;
+   margin: 2px;
    display: flex;
 
    align-items: center;
@@ -67,3 +68,8 @@ canvas{
     
 }
 
+#number0{
+    margin-right: 0px;
+    flex-grow:3;
+    display: flex;
+}
