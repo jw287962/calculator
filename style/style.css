@@ -1,15 +1,19 @@
 html{
     display: flex;
     text-align: center;
+    justify-content: center;
+   
+
 }
 
 body{
     display: flex;
+    background-color: lightblue;
     flex-direction: column;
 }
 .calculator{
     display: flex;
-   
+    background-color: white;
     flex-direction: column;
  
 }
@@ -56,6 +60,7 @@ button{
    border-radius: 3px;
    border-width: 1.2px;
    margin: 2px;
+    padding: 7px;
    display: flex;
 
    align-items: center;
@@ -72,4 +77,9 @@ canvas{
     margin-right: 0px;
     flex-grow:3;
     display: flex;
+}
+
+
+#equal{
+    background-color: rgb(52, 228, 52);
 }
