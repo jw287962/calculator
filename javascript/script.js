@@ -82,7 +82,74 @@ function awaitClick(buttons){
                 
         }))
 
+        buttons.forEach(div => div
+            .addEventListener('keydown',function(event){
+               var button = event.key;
+               event.stopPropagation();
+                // console.log(event);
+             
+                 if(isOperator()){
 
+                        if(button === 'Enter')  {
+                            let total = operate(window.numbers.firstNum,window.numbers.secondNumber,window.numbers.operator);
+                           
+                            changeDisplay(total);
+                            window.numbers.firstNum = total;
+                            window.numbers.secondNumber = 0.0;
+                        }
+                        else if(!isFinite(button) ) {
+                            window.numbers.operator = button;
+                          
+                            changeDisplay(0);
+                            
+                        }
+                        else if(!window.numbers.secondNumber){
+                            let newNum = ((button))
+                     
+                        window.numbers.secondNumber = newNum;
+                        changeDisplay(newNum);
+                      
+                        }
+                        else {
+                            let newNum = (window.numbers.secondNumber+  (button));
+                       
+                        window.numbers.secondNumber = newNum;
+                        changeDisplay(newNum);
+                        }
+                        
+                        // else{
+                        // window.numbers.secondNumber = this.textContent;
+                    
+                        // changeDisplay(window.numbers.secondNumber);
+                        // }
+                }else{
+                        if(!isFinite(button)) {
+                           
+                                window.numbers.operator = button;
+                                console.log(window.numbers.operator);
+                                changeDisplay(0);
+                                
+                            }
+                           else if(!window.numbers.firstNum){
+                                let newNum = ( (button))
+                                window.numbers.firstNum = newNum;
+                            changeDisplay(newNum);
+                            
+                          
+                            }
+                            else {
+                                let newNum = (window.numbers.firstNum + (button));
+                                window.numbers.firstNum = newNum;
+                            changeDisplay(newNum);
+                           
+                            }
+                           
+                          
+                    }
+                    event.preventDefault();
+                
+                 }))
+               
     }
     
 
@@ -144,4 +211,8 @@ function isOperator(){
     else{ 
     return false;
     }
+}
+
+function isNumber(event){
+    return isFinite(event.key)
 }
