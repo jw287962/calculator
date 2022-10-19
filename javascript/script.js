@@ -21,20 +21,22 @@ function awaitClick(buttons){
         buttons.forEach(div => div
             .addEventListener('click',function(){
                 
-                if(this.id === 'clear'){
-                    changeDisplay(0);
+                if(this.id === "clear"){
+                    
                     clear();
                    
                 }
-                else if(isOperator()){
-
-                        if(this.id === 'equal')  {
+                else if(this.id === 'equal')  {
+                    
                             let total = operate(window.numbers.firstNum,window.numbers.secondNumber,window.numbers.operator);
                             changeDisplay(total);
                             window.numbers.firstNum = total;
                             window.numbers.secondNumber = 0.0;
                         }
-                        else if(this.id === 'operator') {
+                else if(isOperator()){
+
+                        
+                         if(this.id === 'operator') {
                             window.numbers.operator = this.textContent;
                             changeDisplay(0);
                             
@@ -58,6 +60,7 @@ function awaitClick(buttons){
                         // changeDisplay(window.numbers.secondNumber);
                         // }
                 }else{
+                    
                         if(this.id === 'operator') {
                                 window.numbers.operator = this.textContent;
                                 changeDisplay(0);
@@ -82,12 +85,15 @@ function awaitClick(buttons){
                 
         }))
 
-        buttons.forEach(div => div
+        let buttonClick = document.querySelectorAll('body');
+        buttonClick.forEach(div => div
             .addEventListener('keydown',function(event){
                var button = event.key;
                event.stopPropagation();
                 // console.log(event);
-             
+             if(window.numbers.operator === 'Escape'){
+                        clear();
+             }
                  if(isOperator()){
 
                         if(button === 'Enter')  {
@@ -126,7 +132,7 @@ function awaitClick(buttons){
                         if(!isFinite(button)) {
                            
                                 window.numbers.operator = button;
-                                console.log(window.numbers.operator);
+                                
                                 changeDisplay(0);
                                 
                             }
@@ -146,7 +152,7 @@ function awaitClick(buttons){
                            
                           
                     }
-                    event.preventDefault();
+                    event.preventDefault(); //have to click button before keyboard works
                 
                  }))
                
@@ -165,6 +171,7 @@ function clear(){
     window.numbers.secondNumber = 0;
     window.numbers.firstNum = 0;
     window.numbers.operator = '';
+    changeDisplay(0);
 }
 function add(num1,num2){
     return ((num1*1000)+(num2*1000))/1000;
@@ -196,7 +203,7 @@ function operate(num1,num2,operator){
         return divide(num1,num2);
     }
     else {
-        return ;
+        return 0+0;
     }
 
 
