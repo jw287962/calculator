@@ -22,7 +22,7 @@ function awaitClick(buttons){
             .addEventListener('click',function(){
                 
                 if(this.id === "clear"){
-                    
+                 
                     clear();
                    
                 }
@@ -32,6 +32,7 @@ function awaitClick(buttons){
                             changeDisplay(total);
                             window.numbers.firstNum = total;
                             window.numbers.secondNumber = 0.0;
+                            window.numbers.operator ='+';
                         }
                 else if(isOperator()){
 
@@ -63,7 +64,7 @@ function awaitClick(buttons){
                     
                         if(this.id === 'operator') {
                                 window.numbers.operator = this.textContent;
-                                changeDisplay(0);
+                             
                                 
                             }
                            else if(!window.numbers.firstNum){
@@ -92,22 +93,21 @@ function awaitClick(buttons){
                event.stopPropagation();
                 // console.log(event);
              if(window.numbers.operator === 'Escape'){
+               
                         clear();
              }
                  if(isOperator()){
 
                         if(button === 'Enter')  {
                             let total = operate(window.numbers.firstNum,window.numbers.secondNumber,window.numbers.operator);
-                           
                             changeDisplay(total);
                             window.numbers.firstNum = total;
                             window.numbers.secondNumber = 0.0;
+                            window.numbers.operator = '+';
                         }
                         else if(!isFinite(button) ) {
                             window.numbers.operator = button;
-                          
-                            changeDisplay(0);
-                            
+                           
                         }
                         else if(!window.numbers.secondNumber){
                             let newNum = ((button))
@@ -130,11 +130,7 @@ function awaitClick(buttons){
                         // }
                 }else{
                         if(!isFinite(button)) {
-                           
-                                window.numbers.operator = button;
-                                
-                                changeDisplay(0);
-                                
+                                window.numbers.operator = button;                                
                             }
                            else if(!window.numbers.firstNum){
                                 let newNum = ( (button))
