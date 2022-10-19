@@ -100,19 +100,19 @@ function clear(){
     window.numbers.operator = '';
 }
 function add(num1,num2){
-    return (num1*1)+(num2*1);
+    return ((num1*1000)+(num2*1000))/1000;
 }
 
 function subtract(num1,num2){
-    return num1-num2;
+    return ((num1*1000)-(num2*1000))/1000;
 }
 
 function multiply(num1,num2){
-    return num1*num2;
+    return ((num1*10000)*(num2*10000))/(10000*10000);
 }
 
 function divide(num1,num2){
-    return num1/num2;
+    return ((num1)/(num2));
 }
 
 function operate(num1,num2,operator){
