@@ -32,8 +32,9 @@ function awaitClick(buttons){
                             changeDisplay(total);
                             window.numbers.firstNum = total;
                             window.numbers.secondNumber = 0.0;
-                            window.numbers.operator ='+';
+                            window.numbers.operator ='';
                         }
+               
                 else if(isOperator()){
 
                         
@@ -41,6 +42,17 @@ function awaitClick(buttons){
                             window.numbers.operator = this.textContent;
                             changeDisplay(0);
                             
+                        } 
+                        else if(this.id ==='plusminus'){
+                            
+                            window.numbers.secondNumber = window.numbers.secondNumber * -1;
+                             
+                                changeDisplay(window.numbers.secondNumber)
+                            }
+                        else if(this.id ==='percent'){
+                            window.numbers.secondNumber = window.numbers.secondNumber/100;
+                            
+                            changeDisplay(window.numbers.secondNumber)
                         }
                         else if(!window.numbers.secondNumber){
                             let newNum = ((this.textContent))
@@ -66,6 +78,17 @@ function awaitClick(buttons){
                                 window.numbers.operator = this.textContent;
                              
                                 
+                            }
+                         else if(this.id ==='plusminus'){
+                    
+                            window.numbers.firstNum = window.numbers.firstNum * -1;
+                             
+                                changeDisplay(window.numbers.firstNum)
+                            }
+                            else if(this.id ==='percent'){
+                                window.numbers.firstNum = window.numbers.firstNum/100;
+                             
+                                changeDisplay(window.numbers.firstNum)
                             }
                            else if(!window.numbers.firstNum){
                                 let newNum = ( (this.textContent))
